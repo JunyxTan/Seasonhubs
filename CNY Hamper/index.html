@@ -1,0 +1,504 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>GSG CNY 2026 Hampers — Review (Bullets + Qty)</title>
+<style>
+:root {
+  --bg: #0b0a08;
+  --card: #14110d;
+  --text: #f5f1e8;
+  --muted: #c9c1b4;
+  --gold: #d8b25a;
+  --red: #c61f2b;
+  --line: rgba(255,255,255,.10);
+  --shadow: 0 12px 30px rgba(0,0,0,.35);
+  --radius: 18px;
+  --max: 1180px;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+  background: radial-gradient(900px 500px at 10% 0%, rgba(214,39,55,.18), transparent 55%),
+              radial-gradient(900px 500px at 90% 0%, rgba(216,178,90,.16), transparent 55%),
+              var(--bg);
+  color:var(--text);
+  line-height:1.45;
+}
+a{color:inherit}
+.wrap{max-width:var(--max); margin:0 auto; padding:28px 18px 80px}
+.topbar{
+  display:flex; gap:14px; align-items:center; justify-content:space-between;
+  border:1px solid var(--line);
+  background:rgba(20,17,13,.65);
+  backdrop-filter: blur(10px);
+  padding:12px 14px;
+  border-radius:999px;
+  position:sticky; top:10px; z-index:50
+}
+.brand{display:flex; gap:10px; align-items:center}
+.badge{width:36px; height:36px; border-radius:999px; background:linear-gradient(135deg, var(--red), #ff7a3c); display:grid; place-items:center; box-shadow: var(--shadow);}
+.badge span{font-weight:900}
+.brand b{letter-spacing:.4px}
+.actions{display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end}
+.btn{
+  appearance:none; border:1px solid var(--line); background:rgba(255,255,255,.06);
+  color:var(--text); padding:10px 14px; border-radius:999px;
+  cursor:pointer; font-weight:650; text-decoration:none;
+  display:inline-flex; gap:8px; align-items:center
+}
+.btn:hover{border-color:rgba(216,178,90,.55); background:rgba(216,178,90,.10)}
+.btn.primary{background:linear-gradient(135deg, var(--red), #ff7a3c); border-color:transparent}
+.btn.primary:hover{filter:brightness(1.03)}
+.hero{display:grid; grid-template-columns: 1.15fr .85fr; gap:18px; margin-top:18px}
+@media (max-width: 920px){ .hero{grid-template-columns:1fr} }
+.panel{
+  border:1px solid var(--line);
+  background:rgba(20,17,13,.55);
+  border-radius:var(--radius);
+  padding:18px;
+  box-shadow: var(--shadow)
+}
+h1{margin:0 0 10px; font-size: clamp(28px, 3.2vw, 42px); line-height:1.1}
+.sub{color:var(--muted); margin:0 0 14px; font-size: 15.5px}
+.kpis{display:flex; gap:10px; flex-wrap:wrap; margin-top:14px}
+.pill{border:1px solid var(--line); padding:10px 12px; border-radius:999px; background:rgba(255,255,255,.05); color:var(--muted)}
+.pill b{color:var(--text)}
+.filters{display:flex; gap:10px; flex-wrap:wrap; margin:14px 0 0}
+.filters .btn{padding:9px 12px}
+
+.grid{display:grid; grid-template-columns: repeat(3, 1fr); gap:14px; margin-top:16px}
+@media (max-width: 980px){ .grid{grid-template-columns: repeat(2, 1fr)} }
+@media (max-width: 620px){ .grid{grid-template-columns: 1fr} }
+
+.card{
+  border:1px solid var(--line);
+  background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+  border-radius:var(--radius);
+  overflow:hidden;
+  box-shadow: var(--shadow);
+  display:flex; flex-direction:column
+}
+.thumb{aspect-ratio: 1 / 1.02; background:#111; position:relative}
+.thumb img{
+  width:100%; height:100%; object-fit:cover; display:block;
+  filter:saturate(1.05) contrast(1.03);
+  background:#222; /* fallback bg so it won't look "blank" */
+}
+.tag{
+  position:absolute; top:12px; left:12px;
+  background:rgba(20,17,13,.72);
+  border:1px solid var(--line);
+  padding:7px 10px;
+  border-radius:999px;
+  font-weight:750
+}
+.tag.gold{color:var(--gold); border-color: rgba(216,178,90,.35)}
+.content{padding:14px 14px 16px; display:flex; gap:12px; flex-direction:column; flex:1}
+.title{display:flex; gap:10px; align-items:flex-start; justify-content:space-between}
+.title h3{margin:0; font-size: 17px; line-height:1.2}
+.title small{display:block; color:var(--muted); margin-top:4px; font-weight:550}
+.price{font-weight:900; letter-spacing:.3px; color:var(--gold)}
+.row{display:flex; gap:10px; flex-wrap:wrap}
+.row .btn{flex:1; justify-content:center}
+.note{color:var(--muted); font-size: 13px; margin:0}
+.section-title{margin:26px 0 10px; display:flex; align-items:baseline; justify-content:space-between; gap:12px}
+.section-title h2{margin:0; font-size: 20px}
+.section-title p{margin:0; color:var(--muted); font-size: 14px}
+
+/* modal */
+.modal{position:fixed; inset:0; display:none; place-items:center; background:rgba(0,0,0,.62); padding:18px; z-index:100}
+.modal.open{display:grid}
+
+/* ✅ desktop modal */
+.modal .box{
+  max-width: 980px; width: 100%;
+  border:1px solid var(--line);
+  border-radius: 22px;
+  overflow:hidden;
+  background:rgba(20,17,13,.92);
+  box-shadow: var(--shadow)
+}
+.modal .box .cols{display:grid; grid-template-columns: 1fr 1fr}
+@media (max-width: 900px){ .modal .box .cols{grid-template-columns:1fr} }
+.modal .box img{width:100%; height:100%; object-fit:cover; display:block}
+.modal .box .right{padding:16px}
+.modal .x{
+  float:right;
+  border:1px solid var(--line);
+  background:rgba(255,255,255,.05);
+  color:var(--text);
+  width:40px; height:40px;
+  border-radius:999px;
+  cursor:pointer
+}
+.modal h3{margin:2px 0 6px}
+.muted{color:var(--muted)}
+.form{margin-top:12px; border-top:1px solid var(--line); padding-top:12px}
+.form label{display:block; font-size:13px; color:var(--muted); margin:10px 0 6px}
+.form input, .form textarea{
+  width:100%;
+  background:rgba(255,255,255,.05);
+  border:1px solid var(--line);
+  color:var(--text);
+  padding:10px 12px;
+  border-radius: 12px;
+  outline:none
+}
+.form textarea{min-height:90px; resize:vertical}
+.footer{margin-top:26px; color:var(--muted); font-size: 13px}
+.footer b{color:var(--text)}
+
+/* ✅ mobile improvements */
+@media (max-width: 620px){
+  /* ✅ topbar won't block content */
+  .topbar{position:relative; top:auto; border-radius:16px; padding:10px 12px}
+  .actions{gap:8px}
+  .btn{padding:12px 14px; font-size:15px}
+  .grid{gap:12px}
+  .card{border-radius:22px}
+  .thumb{aspect-ratio: 1 / 0.92}
+
+  /* ✅ modal scroll fix on mobile */
+  .modal{padding:0}
+  .modal .box{
+    height:100vh;
+    border-radius:0;
+    max-width:none;
+    overflow-y:auto; /* ✅ allow scrolling */
+    -webkit-overflow-scrolling: touch;
+  }
+  .modal .box .cols{grid-template-columns:1fr}
+  .modal .box .left{max-height:44vh; overflow:hidden}
+  .modal .box .right{padding:14px}
+  .modal .x{position:sticky; top:10px}
+}
+
+/* Bullet item list in modal */
+.itemlist{
+  margin:0;
+  padding:12px 14px 12px 22px;
+  border:1px solid var(--line);
+  border-radius:16px;
+  background:rgba(255,255,255,.03);
+  max-height: 240px;
+  overflow:auto;
+}
+.itemlist li{ margin:6px 0; color: var(--muted); }
+@media (max-width:620px){
+  .itemlist{ max-height: 34vh; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <div class="brand">
+      <div class="badge" aria-hidden="true"><span>福</span></div>
+      <div>
+        <b>GSG CNY 2026 Hampers</b>
+        <div style="font-size:12.5px; color:var(--muted)">Horse发财 • Corporate &amp; Family Gifting</div>
+      </div>
+    </div>
+    <div class="actions">
+      <a class="btn" href="#campaign">Campaign Plan</a>
+      <a class="btn" href="#catalog">Catalog</a>
+      <a class="btn primary" id="waTop" href="#">WhatsApp Order</a>
+    </div>
+  </div>
+
+  <div class="hero">
+    <div class="panel">
+      <h1>Send 好运 in a box — CNY Hampers for every budget.</h1>
+      <p class="sub">
+        A1–A13 &amp; S1–S5 collection, from value gifting to prestige celebrations.
+        Perfect for corporate appreciation, family visits, and key-client moments.
+      </p>
+      <div class="kpis">
+        <div class="pill"><b>18</b> hamper choices</div>
+        <div class="pill"><b>RM168–RM3888</b> price range</div>
+        <div class="pill"><b>4</b> gifting tiers</div>
+      </div>
+
+      <div class="filters" aria-label="quick filters">
+        <button class="btn" data-filter="ALL">All</button>
+        <button class="btn" data-filter="Value">Value (≤ RM250)</button>
+        <button class="btn" data-filter="Popular">Popular (RM251–400)</button>
+        <button class="btn" data-filter="Premium">Premium (RM401–900)</button>
+        <button class="btn" data-filter="Prestige">Prestige (≥ RM901)</button>
+      </div>
+
+      <p class="note" style="margin-top:12px">
+        Tip: Use <b>Value/Popular</b> for staff gifting, <b>Premium</b> for customers,
+        and <b>Prestige</b> for VIP &amp; C-suite.
+      </p>
+    </div>
+
+    <div class="panel">
+      <h2 style="margin:0 0 10px">Limited-season urgency</h2>
+      <p class="sub" style="margin-bottom:0">
+        Drive fast decisions with: early-bird perks, corporate bulk deals, and last-call reminders.
+        This page includes ready-to-run ad copy + a catalog your customers can browse on mobile.
+      </p>
+      <div style="margin-top:14px; border-top:1px solid var(--line); padding-top:14px">
+        <div class="pill" style="display:block; border-radius:16px">
+          <b>Suggested offers (optional):</b><br/>
+          • Early-bird: free greeting card upgrade<br/>
+          • Bulk: tiered discount for 10 / 30 / 50 sets<br/>
+          • Delivery: free shipping above a threshold
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="catalog" class="section-title">
+    <h2>Catalog</h2>
+    <p>Tap “View” to see contents and order via WhatsApp.</p>
+  </div>
+
+  <div class="grid" id="grid"></div>
+
+  <div id="campaign" class="section-title">
+    <h2>Marketing Campaign Plan (ready-to-use)</h2>
+    <p>Copy/paste this into your brief for Meta/TikTok/WhatsApp broadcast.</p>
+  </div>
+  <div class="panel">
+    <!-- (left empty in your original) -->
+  </div>
+
+  <div class="footer">
+    <b>Review build:</b> Item list is bullet text and WhatsApp uses selected quantity.
+  </div>
+</div>
+
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-label="Product details">
+  <div class="box">
+    <div class="cols">
+      <div class="left"><img id="mImg" alt="Hamper poster"/></div>
+      <div class="right">
+        <button class="x" id="close">✕</button>
+        <div id="mBody"></div>
+
+        <div style="margin-top:12px">
+          <div class="muted" style="font-weight:700; margin-bottom:8px">Item list</div>
+          <ul class="itemlist" id="itemList"></ul>
+        </div>
+
+        <div class="form">
+          <label>Quantity</label>
+          <input id="qty" type="number" min="1" step="1" value="1" />
+
+          <div class="row" style="margin-top:10px">
+            <a class="btn primary" id="waBtn" href="#">WhatsApp to Order</a>
+            <button class="btn" id="copyBtn" type="button">Copy Order Text</button>
+          </div>
+
+          <label>Your name</label>
+          <input id="fName" placeholder="e.g., Junyx" />
+          <label>Phone</label>
+          <input id="fPhone" placeholder="e.g., +60 12-345 6789" />
+          <label>Delivery address (optional)</label>
+          <textarea id="fAddr" placeholder="Paste address here"></textarea>
+
+          <p class="note" style="margin-top:10px">
+            You can keep the form as enquiry only (copy/paste into WhatsApp), or connect it to your backend later.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+const PRODUCTS = [
+  {"code":"A1","name_en":"Horse to Prosperity","name_zh":"马年吉祥","price_rm":168,"img":"page_01.jpg","tier":"Value"},
+  {"code":"A2","name_en":"Lucky Horse, Star of Fortune","name_zh":"福马呈祥","price_rm":198,"img":"page_02.jpg","tier":"Value"},
+  {"code":"A3","name_en":"May All Wishes Come True","name_zh":"马到如意","price_rm":228,"img":"page_03.jpg","tier":"Value"},
+  {"code":"A4","name_en":"Smooth Luck & Success","name_zh":"马运亨通","price_rm":248,"img":"page_04.jpg","tier":"Value"},
+  {"code":"A5","name_en":"Blessings Arrive, Fortune Follows","name_zh":"马到福到","price_rm":328,"img":"page_05.jpg","tier":"Popular"},
+  {"code":"A6","name_en":"Golden Horse Welcomes Spring","name_zh":"金马迎春","price_rm":398,"img":"page_06.jpg","tier":"Popular"},
+  {"code":"A7","name_en":"Instant Prosperity","name_zh":"马上发财","price_rm":568,"img":"page_07.jpg","tier":"Premium"},
+  {"code":"A8","name_en":"First to Win","name_zh":"一马当先","price_rm":638,"img":"page_08.jpg","tier":"Premium"},
+  {"code":"A9","name_en":"Gather Wealth","name_zh":"金马聚财","price_rm":768,"img":"page_09.jpg","tier":"Premium"},
+  {"code":"A10","name_en":"Health, Longevity & Peace","name_zh":"福寿安康","price_rm":798,"img":"page_10.jpg","tier":"Premium"},
+  {"code":"A11","name_en":"Treasures Overflow","name_zh":"金玉满堂","price_rm":1288,"img":"page_11.jpg","tier":"Prestige"},
+  {"code":"A12","name_en":"Noble & Glorious","name_zh":"富贵荣华","price_rm":2688,"img":"page_12.jpg","tier":"Prestige"},
+  {"code":"A13","name_en":"Wealth from All Directions","name_zh":"八方来财","price_rm":3888,"img":"page_13.jpg","tier":"Prestige"},
+  {"code":"S1","name_en":"Golden Horse Brings Great Luck","name_zh":"金马鸿运","price_rm":398,"img":"page_14.jpg","tier":"Popular"},
+  {"code":"S2","name_en":"Blooming Year, Full Moon","name_zh":"马年花好月圆","price_rm":698,"img":"page_15.jpg","tier":"Premium"},
+  {"code":"S3","name_en":"Spirit of the Dragon Horse","name_zh":"龙马精神","price_rm":898,"img":"page_16.jpg","tier":"Premium"},
+  {"code":"S4","name_en":"Success Arrives","name_zh":"马到成功","price_rm":898,"img":"page_17.jpg","tier":"Premium"},
+  {"code":"S5","name_en":"Good Luck Immediately","name_zh":"马上好运","price_rm":968,"img":"page_18.jpg","tier":"Prestige"}
+];
+
+const CONTENTS = {
+  "A1":["Chinese Tea ×1","Assorted CNY Cookies ×1","Premium Chocolate ×1","Festive Candy ×1","CNY Gift Box ×1"],
+  "A2":["Chinese Tea ×1","Assorted CNY Cookies ×1","Premium Chocolate ×1","Canned Abalone ×1","Festive Candy ×1","CNY Gift Box ×1"],
+  "A3":["Chinese Tea ×1","Assorted CNY Cookies ×2","Premium Chocolate ×1","Canned Abalone ×1","Festive Candy ×1","CNY Gift Box ×1"],
+  "A4":["Chinese Tea ×1","Assorted CNY Cookies ×2","Premium Chocolate ×1","Canned Abalone ×1","Bird’s Nest Drink ×2","CNY Gift Box ×1"],
+  "A5":["Chinese Tea ×1","Assorted CNY Cookies ×2","Premium Chocolate ×1","Canned Abalone ×1","Bird’s Nest Drink ×2","Fish Maw Soup (Canned) ×1","CNY Gift Box ×1"],
+  "A6":["XO Brandy / Wine ×1","Chinese Tea ×1","Assorted CNY Cookies ×2","Premium Chocolate ×1","Canned Abalone ×1","Bird’s Nest Drink ×2","CNY Gift Box ×1"],
+  "A7":["XO Brandy / Wine ×1","Chinese Tea ×1","Assorted CNY Cookies ×2","Premium Chocolate ×1","Canned Abalone ×2","Bird’s Nest Drink ×2","Fish Maw Soup (Canned) ×1","CNY Gift Box ×1"],
+  "A8":["Premium Wine / XO Brandy ×1","Chinese Tea ×1","Assorted CNY Cookies ×2","Premium Chocolate ×1","Canned Abalone ×2","Bird’s Nest Drink ×2","Fish Maw Soup (Canned) ×1","CNY Gift Box ×1"],
+  "A9":["Premium Wine / XO Brandy ×1","Chinese Tea ×1","Assorted CNY Cookies ×2","Premium Chocolate ×1","Canned Abalone ×3","Bird’s Nest Drink ×4","Fish Maw Soup (Canned) ×1","CNY Gift Box ×1"],
+  "A10":["Premium Wine / XO Brandy ×1","Chinese Tea ×1","Assorted CNY Cookies ×2","Premium Chocolate ×1","Canned Abalone ×3","Bird’s Nest Drink ×4","Fish Maw Soup (Canned) ×2","CNY Gift Box ×1"],
+  "A11":["Premium XO Brandy ×1","Premium Chinese Tea ×1","Assorted CNY Cookies ×2","Premium Chocolate ×1","Premium Canned Abalone ×4","Bird’s Nest Drink ×4","Premium Fish Maw Soup ×2","Prestige Gift Box ×1"],
+  "A12":["Luxury XO Brandy ×1","Premium Chinese Tea ×1","Assorted CNY Cookies ×2","Premium Chocolate ×1","Premium Canned Abalone ×6","Bird’s Nest Drink ×6","Premium Fish Maw Soup ×2","Luxury Gift Box ×1"],
+  "A13":["Ultra-Premium XO Brandy ×1","Premium Chinese Tea ×1","Assorted CNY Cookies ×2","Premium Chocolate ×1","Premium Canned Abalone ×8","Bird’s Nest Drink ×6","Premium Fish Maw Soup ×3","Prestige Gift Box ×1"],
+  "S1":["Wine / Brandy ×1","Chinese Tea ×1","Assorted CNY Cookies ×2","Premium Chocolate ×1","Canned Abalone ×1","CNY Gift Box ×1"],
+  "S2":["Wine / Brandy ×1","Chinese Tea ×1","Assorted CNY Cookies ×2","Premium Chocolate ×1","Canned Abalone ×2","Bird’s Nest Drink ×2","CNY Gift Box ×1"],
+  "S3":["Premium Wine / XO Brandy ×1","Chinese Tea ×1","Assorted CNY Cookies ×2","Premium Chocolate ×1","Canned Abalone ×2","Bird’s Nest Drink ×2","Fish Maw Soup ×1","CNY Gift Box ×1"],
+  "S4":["Premium Wine / XO Brandy ×1","Chinese Tea ×1","Assorted CNY Cookies ×2","Premium Chocolate ×1","Canned Abalone ×2","Bird’s Nest Drink ×2","Fish Maw Soup ×1","CNY Gift Box ×1"],
+  "S5":["Premium XO Brandy ×1","Chinese Tea ×1","Assorted CNY Cookies ×2","Premium Chocolate ×1","Premium Canned Abalone ×3","Bird’s Nest Drink ×4","Fish Maw Soup ×2","Prestige Gift Box ×1"]
+};
+
+const WHATSAPP_NUMBER="60123456789";
+const IMG_BASE="assets/img/";
+const fmt=(n)=> new Intl.NumberFormat('en-MY').format(n);
+
+function tierFromPrice(p){
+  if (p<=250) return "Value";
+  if (p<=400) return "Popular";
+  if (p<=900) return "Premium";
+  return "Prestige";
+}
+
+function waMessage(p, qty, name="", phone="", addr=""){
+  const lines=[
+    "Hi! I want to order CNY hamper:",
+    `Code: ${p.code} (${p.name_en} / ${p.name_zh})`,
+    `Price: RM ${fmt(p.price_rm)}`,
+    `Qty: ${qty}`,
+  ];
+  if(name) lines.push(`Name: ${name}`);
+  if(phone) lines.push(`Phone: ${phone}`);
+  if(addr) lines.push(`Address: ${addr}`);
+  lines.push("Please confirm availability & delivery date. 谢谢 🙏");
+  return lines.join("\n");
+}
+
+function waLink(p, qty, name="", phone="", addr=""){
+  const msg=encodeURIComponent(waMessage(p, qty, name, phone, addr));
+  return `https://wa.me/${WHATSAPP_NUMBER}?text=${msg}`;
+}
+
+/* ✅ tiny inline SVG placeholder (no extra file needed) */
+const PLACEHOLDER_SVG = `data:image/svg+xml;charset=utf-8,${encodeURIComponent(`
+  <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1200">
+    <defs>
+      <linearGradient id="g" x1="0" x2="1" y1="0" y2="1">
+        <stop stop-color="#c61f2b" offset="0"/>
+        <stop stop-color="#ff7a3c" offset="1"/>
+      </linearGradient>
+    </defs>
+    <rect width="100%" height="100%" fill="#111"/>
+    <rect x="80" y="80" width="1040" height="1040" rx="80" fill="url(#g)" opacity="0.18"/>
+    <text x="50%" y="48%" fill="#f5f1e8" font-family="Arial" font-size="54" text-anchor="middle">Image not found</text>
+    <text x="50%" y="54%" fill="#c9c1b4" font-family="Arial" font-size="28" text-anchor="middle">Check assets/img/page_01.jpg ...</text>
+  </svg>
+`)}`;
+
+function buildCard(p){
+  const el=document.createElement('div');
+  el.className="card";
+  const tier=p.tier || tierFromPrice(p.price_rm);
+  el.dataset.tier=tier;
+
+  const imgSrc = `${IMG_BASE}${p.img}`;
+
+  el.innerHTML=`
+    <div class="thumb">
+      <img loading="lazy"
+           src="${imgSrc}"
+           alt="${p.code} hamper poster"
+           onerror="this.onerror=null; this.src='${PLACEHOLDER_SVG}';" />
+      <div class="tag gold">${tier} • ${p.code}</div>
+    </div>
+    <div class="content">
+      <div class="title">
+        <div>
+          <h3>${p.name_en}</h3>
+          <small>${p.name_zh}</small>
+        </div>
+        <div class="price">RM ${fmt(p.price_rm)}</div>
+      </div>
+      <p class="note">Quick order: reply <b>${p.code}</b> + quantity (e.g., “${p.code} x 10”).</p>
+      <div class="row">
+        <button class="btn" data-view="${p.code}">View</button>
+        <a class="btn primary" href="${waLink(p,1)}" target="_blank" rel="noopener">Order</a>
+      </div>
+    </div>
+  `;
+  el.querySelector('[data-view]').addEventListener('click',()=>openModal(p));
+  return el;
+}
+
+const grid=document.getElementById('grid');
+function render(filterTier="ALL"){
+  grid.innerHTML="";
+  PRODUCTS.forEach(p=>{
+    const tier=p.tier || tierFromPrice(p.price_rm);
+    if(filterTier!=="ALL" && tier!==filterTier) return;
+    grid.appendChild(buildCard({...p, tier}));
+  });
+}
+render();
+document.querySelectorAll('[data-filter]').forEach(btn=>btn.addEventListener('click',()=>render(btn.dataset.filter)));
+
+const waTop=document.getElementById('waTop');
+waTop.href=`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent("Hi! Please send me the CNY 2026 hamper catalogue + bulk deal info. Thanks!")}`;
+
+const modal=document.getElementById('modal');
+document.getElementById('close').addEventListener('click',()=>modal.classList.remove('open'));
+modal.addEventListener('click',(e)=>{ if(e.target===modal) modal.classList.remove('open'); });
+
+let current=null;
+function openModal(p){
+  current=p;
+  const mImg=document.getElementById('mImg');
+  mImg.src=`${IMG_BASE}${p.img}`;
+  mImg.onerror=()=>{ mImg.onerror=null; mImg.src=PLACEHOLDER_SVG; };
+
+  document.getElementById('mBody').innerHTML=`
+    <h3>${p.code} • ${p.name_en}</h3>
+    <div class="muted">${p.name_zh} • <b style="color:var(--gold)">RM ${fmt(p.price_rm)}</b></div>
+    <p class="muted" style="margin-top:10px">Use the order form below for fast checkout.</p>
+  `;
+  const ul=document.getElementById('itemList');
+  ul.innerHTML='';
+  (CONTENTS[p.code]||[]).forEach(it=>{ const li=document.createElement('li'); li.textContent=it; ul.appendChild(li); });
+  document.getElementById('qty').value='1';
+  document.getElementById('fName').value='';
+  document.getElementById('fPhone').value='';
+  document.getElementById('fAddr').value='';
+  updateLinks();
+  modal.classList.add('open');
+}
+
+function updateLinks(){
+  if(!current) return;
+  const qty=parseInt(document.getElementById('qty').value||'1',10)||1;
+  const name=document.getElementById('fName').value.trim();
+  const phone=document.getElementById('fPhone').value.trim();
+  const addr=document.getElementById('fAddr').value.trim();
+  const link=waLink(current, qty, name, phone, addr);
+  const waBtn=document.getElementById('waBtn');
+  waBtn.href=link; waBtn.target="_blank"; waBtn.rel="noopener";
+}
+['qty','fName','fPhone','fAddr'].forEach(id=>document.getElementById(id).addEventListener('input', updateLinks));
+
+document.getElementById('copyBtn').addEventListener('click', async ()=>{
+  if(!current) return;
+  const qty=parseInt(document.getElementById('qty').value||'1',10)||1;
+  const name=document.getElementById('fName').value.trim();
+  const phone=document.getElementById('fPhone').value.trim();
+  const addr=document.getElementById('fAddr').value.trim();
+  const text=waMessage(current, qty, name, phone, addr);
+  try{ await navigator.clipboard.writeText(text); alert("Copied! Paste into WhatsApp."); }
+  catch(e){ prompt("Copy this text:", text); }
+});
+</script>
+</body>
+</html>
