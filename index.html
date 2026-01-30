@@ -6,6 +6,7 @@
 <title>GSG CNY 2026 Hampers - Multi-Item Cart (WhatsApp)</title>
 <style>
 :root{
+  --bgimg: url('https://raw.githubusercontent.com/JunyxTan/Seasonhubs/main/assets/cny-2026-bg.png');
   --bg:#0b0a08; --card:#14110d; --text:#f5f1e8; --muted:#c9c1b4;
   --gold:#d8b25a; --red:#c61f2b; --line:rgba(255,255,255,.10);
   --shadow:0 12px 30px rgba(0,0,0,.35); --radius:18px; --max:1180px;
@@ -14,12 +15,36 @@
 body{
   margin:0;
   font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
-  background: radial-gradient(900px 500px at 10% 0%, rgba(214,39,55,.18), transparent 55%),
-              radial-gradient(900px 500px at 90% 0%, rgba(216,178,90,.16), transparent 55%),
-              var(--bg);
+  background: var(--bg);
+  position: relative;
+  overflow-x: hidden;
   color:var(--text);
   line-height:1.45;
 }
+
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  background-image: var(--bgimg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.80;
+  z-index: -2;
+  transform: translateZ(0);
+}
+body::after{
+  content:"";
+  position:fixed;
+  inset:0;
+  background: radial-gradient(900px 500px at 10% 0%, rgba(214,39,55,.24), transparent 55%),
+              radial-gradient(900px 500px at 90% 0%, rgba(216,178,90,.22), transparent 55%),
+              linear-gradient(180deg, rgba(0,0,0,.22), rgba(0,0,0,.55));
+  z-index:-1;
+  pointer-events:none;
+}
+
 a{color:inherit}
 .wrap{max-width:var(--max); margin:0 auto; padding:28px 18px 110px}
 .topbar{
