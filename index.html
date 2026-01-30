@@ -85,7 +85,7 @@ h1{margin:0 0 10px; font-size: clamp(28px, 3.2vw, 42px); line-height:1.1}
 .thumb img{
   width:100%; height:100%; object-fit:cover; display:block;
   filter:saturate(1.05) contrast(1.03);
-  background:#222; /* fallback bg so it won't look "blank" */
+  background:#222;
 }
 .tag{
   position:absolute; top:12px; left:12px;
@@ -111,8 +111,6 @@ h1{margin:0 0 10px; font-size: clamp(28px, 3.2vw, 42px); line-height:1.1}
 /* modal */
 .modal{position:fixed; inset:0; display:none; place-items:center; background:rgba(0,0,0,.62); padding:18px; z-index:100}
 .modal.open{display:grid}
-
-/* ✅ desktop modal */
 .modal .box{
   max-width: 980px; width: 100%;
   border:1px solid var(--line);
@@ -153,7 +151,6 @@ h1{margin:0 0 10px; font-size: clamp(28px, 3.2vw, 42px); line-height:1.1}
 
 /* ✅ mobile improvements */
 @media (max-width: 620px){
-  /* ✅ topbar won't block content */
   .topbar{position:relative; top:auto; border-radius:16px; padding:10px 12px}
   .actions{gap:8px}
   .btn{padding:12px 14px; font-size:15px}
@@ -161,13 +158,12 @@ h1{margin:0 0 10px; font-size: clamp(28px, 3.2vw, 42px); line-height:1.1}
   .card{border-radius:22px}
   .thumb{aspect-ratio: 1 / 0.92}
 
-  /* ✅ modal scroll fix on mobile */
   .modal{padding:0}
   .modal .box{
     height:100vh;
     border-radius:0;
     max-width:none;
-    overflow-y:auto; /* ✅ allow scrolling */
+    overflow-y:auto;
     -webkit-overflow-scrolling: touch;
   }
   .modal .box .cols{grid-template-columns:1fr}
@@ -264,9 +260,7 @@ h1{margin:0 0 10px; font-size: clamp(28px, 3.2vw, 42px); line-height:1.1}
     <h2>Marketing Campaign Plan (ready-to-use)</h2>
     <p>Copy/paste this into your brief for Meta/TikTok/WhatsApp broadcast.</p>
   </div>
-  <div class="panel">
-    <!-- (left empty in your original) -->
-  </div>
+  <div class="panel"></div>
 
   <div class="footer">
     <b>Review build:</b> Item list is bullet text and WhatsApp uses selected quantity.
@@ -301,10 +295,6 @@ h1{margin:0 0 10px; font-size: clamp(28px, 3.2vw, 42px); line-height:1.1}
           <input id="fPhone" placeholder="e.g., +60 12-345 6789" />
           <label>Delivery address (optional)</label>
           <textarea id="fAddr" placeholder="Paste address here"></textarea>
-
-          <p class="note" style="margin-top:10px">
-            You can keep the form as enquiry only (copy/paste into WhatsApp), or connect it to your backend later.
-          </p>
         </div>
       </div>
     </div>
@@ -312,25 +302,31 @@ h1{margin:0 0 10px; font-size: clamp(28px, 3.2vw, 42px); line-height:1.1}
 </div>
 
 <script>
+/* ✅ Raw base (iPhone-safe) */
+const RAW_BASE = "https://raw.githubusercontent.com/JunyxTan/Seasonhubs/main/";
+
+/* ✅ Your WhatsApp number (digits only) */
+const WHATSAPP_NUMBER = "60129665291";
+
 const PRODUCTS = [
-  {"code":"A1","name_en":"Horse to Prosperity","name_zh":"马年吉祥","price_rm":168,"img":"https://github.com/JunyxTan/Seasonhubs/blob/main/assets/page_01.jpg","tier":"Value"},
-  {"code":"A2","name_en":"Lucky Horse, Star of Fortune","name_zh":"福马呈祥","price_rm":198,"img":"https://github.com/JunyxTan/Seasonhubs/blob/main/assets/page_02.jpg","tier":"Value"},
-  {"code":"A3","name_en":"May All Wishes Come True","name_zh":"马到如意","price_rm":228,"img":"https://github.com/JunyxTan/Seasonhubs/blob/main/assets/page_03.jpg","tier":"Value"},
-  {"code":"A4","name_en":"Smooth Luck & Success","name_zh":"马运亨通","price_rm":248,"img":"https://github.com/JunyxTan/Seasonhubs/blob/main/assets/page_04.jpg","tier":"Value"},
-  {"code":"A5","name_en":"Blessings Arrive, Fortune Follows","name_zh":"马到福到","price_rm":328,"img":"https://github.com/JunyxTan/Seasonhubs/blob/main/assets/page_05.jpg","tier":"Popular"},
-  {"code":"A6","name_en":"Golden Horse Welcomes Spring","name_zh":"金马迎春","price_rm":398,"img":"https://github.com/JunyxTan/Seasonhubs/blob/main/assets/page_06.jpg","tier":"Popular"},
-  {"code":"A7","name_en":"Instant Prosperity","name_zh":"马上发财","price_rm":568,"img":"https://github.com/JunyxTan/Seasonhubs/blob/main/assets/page_07.jpg","tier":"Premium"},
-  {"code":"A8","name_en":"First to Win","name_zh":"一马当先","price_rm":638,"img":"https://github.com/JunyxTan/Seasonhubs/blob/main/assets/page_08.jpg","tier":"Premium"},
-  {"code":"A9","name_en":"Gather Wealth","name_zh":"金马聚财","price_rm":768,"img":"https://github.com/JunyxTan/Seasonhubs/blob/main/assets/page_09.jpg","tier":"Premium"},
-  {"code":"A10","name_en":"Health, Longevity & Peace","name_zh":"福寿安康","price_rm":798,"img":"https://github.com/JunyxTan/Seasonhubs/blob/main/assets/page_10.jpg","tier":"Premium"},
-  {"code":"A11","name_en":"Treasures Overflow","name_zh":"金玉满堂","price_rm":1288,"img":"https://github.com/JunyxTan/Seasonhubs/blob/main/assets/page_11.jpg","tier":"Prestige"},
-  {"code":"A12","name_en":"Noble & Glorious","name_zh":"富贵荣华","price_rm":2688,"img":"https://github.com/JunyxTan/Seasonhubs/blob/main/assets/page_12.jpg","tier":"Prestige"},
-  {"code":"A13","name_en":"Wealth from All Directions","name_zh":"八方来财","price_rm":3888,"img":"https://github.com/JunyxTan/Seasonhubs/blob/main/assets/page_13.jpg","tier":"Prestige"},
-  {"code":"S1","name_en":"Golden Horse Brings Great Luck","name_zh":"金马鸿运","price_rm":398,"img":"https://github.com/JunyxTan/Seasonhubs/blob/main/assets/page_14.jpg","tier":"Popular"},
-  {"code":"S2","name_en":"Blooming Year, Full Moon","name_zh":"马年花好月圆","price_rm":698,"img":"https://github.com/JunyxTan/Seasonhubs/blob/main/assets/page_15.jpg","tier":"Premium"},
-  {"code":"S3","name_en":"Spirit of the Dragon Horse","name_zh":"龙马精神","price_rm":898,"img":"https://github.com/JunyxTan/Seasonhubs/blob/main/assets/page_16.jpg","tier":"Premium"},
-  {"code":"S4","name_en":"Success Arrives","name_zh":"马到成功","price_rm":898,"img":"https://github.com/JunyxTan/Seasonhubs/blob/main/assets/page_17.jpg","tier":"Premium"},
-  {"code":"S5","name_en":"Good Luck Immediately","name_zh":"马上好运","price_rm":968,"img":"https://github.com/JunyxTan/Seasonhubs/blob/main/assets/page_18.jpg","tier":"Prestige"}
+  {"code":"A1","name_en":"Horse to Prosperity","name_zh":"马年吉祥","price_rm":168,"img": RAW_BASE+"assets/page_01.jpg","tier":"Value"},
+  {"code":"A2","name_en":"Lucky Horse, Star of Fortune","name_zh":"福马呈祥","price_rm":198,"img": RAW_BASE+"assets/page_02.jpg","tier":"Value"},
+  {"code":"A3","name_en":"May All Wishes Come True","name_zh":"马到如意","price_rm":228,"img": RAW_BASE+"assets/page_03.jpg","tier":"Value"},
+  {"code":"A4","name_en":"Smooth Luck & Success","name_zh":"马运亨通","price_rm":248,"img": RAW_BASE+"assets/page_04.jpg","tier":"Value"},
+  {"code":"A5","name_en":"Blessings Arrive, Fortune Follows","name_zh":"马到福到","price_rm":328,"img": RAW_BASE+"assets/page_05.jpg","tier":"Popular"},
+  {"code":"A6","name_en":"Golden Horse Welcomes Spring","name_zh":"金马迎春","price_rm":398,"img": RAW_BASE+"assets/page_06.jpg","tier":"Popular"},
+  {"code":"A7","name_en":"Instant Prosperity","name_zh":"马上发财","price_rm":568,"img": RAW_BASE+"assets/page_07.jpg","tier":"Premium"},
+  {"code":"A8","name_en":"First to Win","name_zh":"一马当先","price_rm":638,"img": RAW_BASE+"assets/page_08.jpg","tier":"Premium"},
+  {"code":"A9","name_en":"Gather Wealth","name_zh":"金马聚财","price_rm":768,"img": RAW_BASE+"assets/page_09.jpg","tier":"Premium"},
+  {"code":"A10","name_en":"Health, Longevity & Peace","name_zh":"福寿安康","price_rm":798,"img": RAW_BASE+"assets/page_10.jpg","tier":"Premium"},
+  {"code":"A11","name_en":"Treasures Overflow","name_zh":"金玉满堂","price_rm":1288,"img": RAW_BASE+"assets/page_11.jpg","tier":"Prestige"},
+  {"code":"A12","name_en":"Noble & Glorious","name_zh":"富贵荣华","price_rm":2688,"img": RAW_BASE+"assets/page_12.jpg","tier":"Prestige"},
+  {"code":"A13","name_en":"Wealth from All Directions","name_zh":"八方来财","price_rm":3888,"img": RAW_BASE+"assets/page_13.jpg","tier":"Prestige"},
+  {"code":"S1","name_en":"Golden Horse Brings Great Luck","name_zh":"金马鸿运","price_rm":398,"img": RAW_BASE+"assets/page_14.jpg","tier":"Popular"},
+  {"code":"S2","name_en":"Blooming Year, Full Moon","name_zh":"马年花好月圆","price_rm":698,"img": RAW_BASE+"assets/page_15.jpg","tier":"Premium"},
+  {"code":"S3","name_en":"Spirit of the Dragon Horse","name_zh":"龙马精神","price_rm":898,"img": RAW_BASE+"assets/page_16.jpg","tier":"Premium"},
+  {"code":"S4","name_en":"Success Arrives","name_zh":"马到成功","price_rm":898,"img": RAW_BASE+"assets/page_17.jpg","tier":"Premium"},
+  {"code":"S5","name_en":"Good Luck Immediately","name_zh":"马上好运","price_rm":968,"img": RAW_BASE+"assets/page_18.jpg","tier":"Prestige"}
 ];
 
 const CONTENTS = {
@@ -354,8 +350,6 @@ const CONTENTS = {
   "S5":["Premium XO Brandy ×1","Chinese Tea ×1","Assorted CNY Cookies ×2","Premium Chocolate ×1","Premium Canned Abalone ×3","Bird’s Nest Drink ×4","Fish Maw Soup ×2","Prestige Gift Box ×1"]
 };
 
-const WHATSAPP_NUMBER="60123456789";
-const IMG_BASE="assets/img/";
 const fmt=(n)=> new Intl.NumberFormat('en-MY').format(n);
 
 function tierFromPrice(p){
@@ -384,19 +378,10 @@ function waLink(p, qty, name="", phone="", addr=""){
   return `https://wa.me/${WHATSAPP_NUMBER}?text=${msg}`;
 }
 
-/* ✅ tiny inline SVG placeholder (no extra file needed) */
 const PLACEHOLDER_SVG = `data:image/svg+xml;charset=utf-8,${encodeURIComponent(`
   <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1200">
-    <defs>
-      <linearGradient id="g" x1="0" x2="1" y1="0" y2="1">
-        <stop stop-color="#c61f2b" offset="0"/>
-        <stop stop-color="#ff7a3c" offset="1"/>
-      </linearGradient>
-    </defs>
     <rect width="100%" height="100%" fill="#111"/>
-    <rect x="80" y="80" width="1040" height="1040" rx="80" fill="url(#g)" opacity="0.18"/>
-    <text x="50%" y="48%" fill="#f5f1e8" font-family="Arial" font-size="54" text-anchor="middle">Image not found</text>
-    <text x="50%" y="54%" fill="#c9c1b4" font-family="Arial" font-size="28" text-anchor="middle">Check assets/img/page_01.jpg ...</text>
+    <text x="50%" y="50%" fill="#f5f1e8" font-family="Arial" font-size="48" text-anchor="middle">Image not found</text>
   </svg>
 `)}`;
 
@@ -406,13 +391,9 @@ function buildCard(p){
   const tier=p.tier || tierFromPrice(p.price_rm);
   el.dataset.tier=tier;
 
-  const imgSrc = `${IMG_BASE}${p.img}`;
-
   el.innerHTML=`
     <div class="thumb">
-      <img loading="lazy"
-           src="${imgSrc}"
-           alt="${p.code} hamper poster"
+      <img loading="lazy" src="${p.img}" alt="${p.code} hamper poster"
            onerror="this.onerror=null; this.src='${PLACEHOLDER_SVG}';" />
       <div class="tag gold">${tier} • ${p.code}</div>
     </div>
@@ -458,7 +439,7 @@ let current=null;
 function openModal(p){
   current=p;
   const mImg=document.getElementById('mImg');
-  mImg.src=`${IMG_BASE}${p.img}`;
+  mImg.src=p.img;
   mImg.onerror=()=>{ mImg.onerror=null; mImg.src=PLACEHOLDER_SVG; };
 
   document.getElementById('mBody').innerHTML=`
@@ -483,9 +464,7 @@ function updateLinks(){
   const name=document.getElementById('fName').value.trim();
   const phone=document.getElementById('fPhone').value.trim();
   const addr=document.getElementById('fAddr').value.trim();
-  const link=waLink(current, qty, name, phone, addr);
-  const waBtn=document.getElementById('waBtn');
-  waBtn.href=link; waBtn.target="_blank"; waBtn.rel="noopener";
+  document.getElementById('waBtn').href=waLink(current, qty, name, phone, addr);
 }
 ['qty','fName','fPhone','fAddr'].forEach(id=>document.getElementById(id).addEventListener('input', updateLinks));
 
