@@ -146,16 +146,21 @@ h1{margin:0 0 10px; font-size: clamp(28px, 3.2vw, 42px); line-height:1.1}
 .modal{position:fixed; inset:0; display:none; place-items:center; background:rgba(0,0,0,.62); padding:18px; z-index:100}
 .modal.open{display:grid}
 .modal .box{
-  max-width: 980px; width: 100%;
+  max-width: 1200px; width: 100%;
   border:1px solid var(--line);
   border-radius: 22px;
   overflow:hidden;
   background:rgba(20,17,13,.92);
-  box-shadow: var(--shadow)
+  box-shadow: var(--shadow);
+  max-height: 90vh;
 }
 .modal .box .cols{display:grid; grid-template-columns: 1fr 1fr}
 @media (max-width: 900px){ .modal .box .cols{grid-template-columns:1fr} }
-.modal .box img{width:100%; height:100%; object-fit:cover; display:block}
+.modal .box img{width:100%; height:100%; object-fit:contain; display:block}
+.modal .box .left{
+  min-height: 60vh;
+  background:#0f0d0a;
+}
 .modal .box .right{padding:16px}
 .modal .x{
   float:right;
